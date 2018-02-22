@@ -1,0 +1,2 @@
+class BoardWordsController < ApplicationController
+end
