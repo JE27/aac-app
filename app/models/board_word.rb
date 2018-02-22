@@ -1,0 +1,2 @@
+class BoardWord < ApplicationRecord
+end
