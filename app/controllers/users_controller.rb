@@ -1,12 +1,18 @@
 class UsersController < ApplicationController
 
-  def users_index_action
-    response = Unirest.get ("http://localhost:3000/users")
-    user_hashes = response.body
-    users = []
-    user_hashes.each do |user_hash|
-      users << Users.new(user_hash)
+  def users_create_action
+    user = User.new(
+                    first_name: params[:first_name],
+                    last_name: params[:last_name],
+                    email: params[:email],
+                    password: params[:password],
+                    password_confirmation: params[:password_confirmation]
+                    )
+    if user.save
+      render json: {message:"You're now signed up!"}, status :created
+    else 
+      render json: {errors: "user.errors.full_messages"}, status: :bad_request
     end
-    users_index_view(users)
   end
+
 end
