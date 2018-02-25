@@ -22,6 +22,12 @@ class BoardsController < ApplicationController
                         user_id: current_user.id,
                         context: params[:context]
                        )
+
+    @words = Word.where("")
+    jocelyn_words.length.times do |jocelyn_word|
+      BoardWord.create(word_id:jocelyn_word.id, board_id:@board.id)
+    end
+    
     @board.save
     render 'show.json.jbuilder'
   end
