@@ -1,0 +1,123 @@
+
+            <div class="spacer-2x">&nbsp;</div>
+                <!-- header cards -->
+                <template id="boards-index-page"></template>
+                <div class="row">
+                    <div class="col-sm-12 col-md-4">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h4 class="card-title">ABOUT US</h4>
+                                <p class="card-text">Left-aligned content. Example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#x" class="btn btn-primary pill ripple"> click me!</a>
+                            </div><!-- / card-body -->
+                        </div><!-- / card -->
+                    </div><!-- / column -->
+
+                    <div class="col-sm-12 col-md-4">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h4 class="card-title">BOARDS</h4>
+                                <p class="card-text">Center-aligned content. Example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#x" class="btn btn-warning pill ripple-dark ripple">click me!</a>
+                            </div><!-- / card-body -->
+                        </div><!-- / card -->
+                    </div><!-- / column -->
+
+                    <div class="col-sm-12 col-md-4">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h4 class="card-title">LOGIN OR SIGNUP</h4>
+                                <p class="card-text">Right-aligned content. Example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#x" class="btn btn-success pill ripple">click me!</a>
+                            </div><!-- / card-body -->
+                        </div><!-- / card -->
+                    </div><!-- / column -->
+
+                </div><!-- / row -->
+                <!-- / header cards -->
+
+
+
+            <!-- portfolio filter -->
+    <div class="spacer-2x">&nbsp;</div>
+    <div class="spacer-2x">&nbsp;</div>
+    <div class="cta bg-inverse">
+        <div class="row center">
+            <ul class="portfolio-filter list-inline text-center">
+                <li><a href="#" data-group="all" class="active"><i class="md-icon dp14 mr-2">layers</i> <span class="va-middle">ALL</span></a></li>
+                <li><a href="#" data-group="design"><i class="md-icon dp14 mr-2">palette</i> <span class="va-middle">DESIGN</span></a></li>
+                <li><a href="#" data-group="web-design"><i class="md-icon dp14 mr-2">code</i> <span class="va-middle">WEB DESIGN</span></a></li>
+                <li><a href="#" data-group="photography"><i class="md-icon dp14 mr-2">photo_camera</i> <span class="va-middle">PHOTOGRAPHY</span></a></li>
+                <li><a href="#" data-group="seo"><i class="md-icon dp14 mr-2">public</i> <span class="va-middle">SEO</span></a></li>
+            </ul>
+        </div><!-- / row -->
+    </div><!-- / cta -->
+    <div class="spacer-2x">&nbsp;</div>
+    <div class="spacer-2x">&nbsp;</div>
+    <div class="spacer">&nbsp;</div>
+
+<template id="boards-index-page">  
+        <div class="row">
+            <div v-for="board in boards" class="col-md-4">
+                <div class="block icon-block bg-primary w-border-2x border-primary dark inner-space rounded-2x text-center">
+                    <i class="md-icon dp36 box-icon bg-primary border-primary text-white pill raised">verified_user</i>
+                    <span h6 class="box-title">{{ board.context }}</span>
+                    <span class="box-description"> {{"description"}}</span>
+                </div><!-- / icon-block -->
+            </div><!-- / column -->
+         
+        </div><!-- / row -->
+</template><!-- index template -->
+<!-- end boards index callouts -->
+
+
+
+ 
+            <div class="spacer-2x">&nbsp;</div>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card blog-card">
+                        <img class="card-img-top" src="images/post4.jpg" alt="">
+                        <div class="card-body">
+                            <div class="block blog-block">
+                                <h5 class="box-title mt-0 mb-2"><a href="#x"><b>TRAVEL THE WORLD</b></a></h5>
+                            </div><!-- / blog-block -->
+                        </div><!-- / card-body -->
+                    </div><!-- / card -->
+                </div><!-- / column -->
+
+                <div class="col-md-4">
+                    <div class="card blog-card">
+                        <img class="card-img-top" src="images/post5.jpg" alt="">
+                        <div class="card-body">
+                            <div class="block blog-block">
+                                <h5 class="box-title mt-0 mb-2"><a href="#x"><b>HEALTHY FOOD</b></a></h5>
+                            </div><!-- / blog-block -->
+                        </div><!-- / card-body -->
+                    </div><!-- / card -->
+                </div><!-- / column -->
+
+                <div class="col-md-4">
+                    <div class="card blog-card">
+                        <img class="card-img-top" src="images/post6.jpg" alt="">
+                        <div class="card-body">
+                            <div class="block blog-block">
+                                <h5 class="box-title mt-0 mb-2"><a href="#x"><b>STATISTICS FOR 2018</b></a></h5>
+                            </div><!-- / blog-block -->
+                        </div><!-- / card-body -->
+                    </div><!-- / card -->
+                </div><!-- / column -->
+            </div><!-- / row -->
+            
+
+             <div class="spacer">&nbsp;</div>
+
+                    </div><!-- / content -->
+    </div><!-- / container -->
+
+    <a href="#top" class="scroll-to-top pill is-hidden smooth-scroll rounded" data-nav-status="toggle"><i class="md-icon dp18">expand_less</i></a>
+
+    <div class="spacer-2x">&nbsp;</div>
+
+    <div class="spacer">&nbsp;</div>

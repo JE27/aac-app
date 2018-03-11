@@ -1,1 +1,227 @@
-index.html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Material Design UI Kit">
+    <meta name="author" content="kingstudio.ro">
+    <!-- Favicon -->
+    <link rel="icon" href="">
+    <!-- Site Title -->
+    <title>mic check - an augmentative & alternate communication device</title>
+    <!-- Bootstrap 4 core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/owl.carousel.min.css" rel="stylesheet">
+    <link href="css/ripple.css" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+
+    <script src="index.js" defer></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.js"></script>
+
+
+</head>
+
+<body data-spy="scroll" data-target="#nav-scroll">
+    <div id="vue-app"> 
+
+        <div id="top"></div>
+        <!-- header -->
+        <!-- navigation menu -->
+        <nav id="nav-scroll" class="navbar-demo navbar navbar-demo navbar-expand-lg navbar-inverse fixed-top">
+            <div class="container content-container">
+                <a class="navbar-brand smooth-scroll" href="#top"><img src="" alt=""> <span class="va-middle ml-1">mic check</span></a>
+
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                  <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link smooth-scroll ripple" href="#top"><i class="md-icon dp16">home</i> <span class="va-middle">HOME</span></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle ripple-dark ripple" href="#x" id="dropdown001" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">BOARDS</a>
+                            <div class="dropdown-menu animated zoomIn fast" aria-labelledby="dropdown001">
+                                <a class="dropdown-item ripple-dark ripple" href="#x">DAILY</a>
+                                <a class="dropdown-item ripple-dark ripple" href="#x">SCHOOL</a>
+                                <a class="dropdown-item ripple-dark ripple" href="#x">PLAY</a>
+                                <a class="dropdown-item ripple-dark ripple" href="#x">FOOD</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item ripple-dark ripple" href="#x">ALL BOARDS</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link smooth-scroll ripple" href="#basic-components"><i class="md-icon dp16">layers</i> <span class="va-middle">ABOUT</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link smooth-scroll ripple" href="#content-areas"><i class="md-icon dp16">dashboard</i> <span class="va-middle"> LOGIN/SIGN-UP</span></a>
+                        </li>
+                    </ul><!-- / navbar-nav -->
+
+                  </div><!-- main-menu -->
+            </div><!-- container -->
+        </nav>
+    <!-- / navigation menu -->
+
+    
+        <header class="parallax">
+            <div class="container text-center dark">
+                <img src="images/logo.png" alt="logo" class="header-logo mb-3">
+                <h3 class="mt-3 mb-3">mic check - making sure all voices are loud enough to be heard</h3>
+                <h4 class="dark">by expanding communication options for children who are nonvocal.</h4>
+            </div><!-- / container -->
+        </header>
+
+        <!-- end header -->
+
+        <router-view></router-view>
+
+
+        <!-- FOOTER  -->
+        <footer class="dark footer-inverse">
+            <div class="container-fluid">
+                <div class="row footer-widget-area">
+                    <div class="col-lg-4 mb-3">
+                        <h3 class="widget-title">mic check - making sure all voices are loud enogh to be heard</h3>
+                        <p class="mt-3 mb-3">Donec blandit nisi non lectus pharetra, vel varius tortor pretium. Sed posuere sit amet nisi id asm scelerisque conubia nostra, per inceptos. Nam aledui et feugiat suscipit at consequat leo.</p>
+                    </div><!-- / column -->
+
+                    <div class="col-lg-2 mb-3">
+                        <h3 class="widget-title">USEFULL LINKS</h3>
+                        <ul class="list-unstyled mt-3">
+                            <li class="mb-3"><a href="#x"><b>SiteMap</b></a></li>
+                            <li class="mb-3"><a href="#x"><b>Tips & Tricks</b></a></li>
+                            <li class="mb-3"><a href="#x"><b>FAQ</b></a></li>
+                            <li class="mb-3"><a href="#x"><b>Contact</b></a></li>
+                        </ul>
+                    </div><!-- / column -->
+
+                    <div class="col-lg-2 mb-3">
+                        <h3 class="widget-title">SERVICES</h3>
+                        <ul class="list-unstyled mt-3">
+                            <li class="mb-3"><a href="#x"><b>Graphic Design</b></a></li>
+                            <li class="mb-3"><a href="#x"><b>Web Design</b></a></li>
+                            <li class="mb-3"><a href="#x"><b>Photography</b></a></li>
+                            <li class="mb-3"><a href="#x"><b>SEO</b></a></li>
+                        </ul>
+                    </div><!-- / column -->
+
+                    <div class="col-lg-4 mb-3">
+                        <h3 class="widget-title">SUBSCRIBE TO NEWSLETTER</h3>
+                        <p class="mt-3">Join our newsletter to get notified. Don't worry about spam, we'll never do that!</p>
+                        <div class="input-group dark mt-3 ml-auto mr-auto">
+                            <input class="form-control" placeholder="Email Address..." type="email">
+                            <span class="input-group-btn">
+                                <a href="#x" class="btn btn-primary pill ml-2 ripple"><i class="md-icon dp16 mr-1">send</i></a>
+                            </span>
+                        </div><!-- / input-group -->
+                    </div><!-- / column -->
+                </div><!-- / row footer-widget-area -->
+                <div class="footer-secondary text-center">
+                    <div class="text-sm">
+                        <p class="mb-0"><b>COPYRIGHT © 2018 mic check - making sure all voices are loud enough to be heard</b></p>
+                    </div>
+                    <div class="social-icons mt-2">
+                        <a href="#x" class="btn btn-social p-2 btn-facebook-link"><i class="fa fa-facebook"></i></a>
+                        <a href="#x" class="btn btn-social p-2 btn-twitter-link"><i class="fa fa-twitter"></i></a>
+                        <a href="#x" class="btn btn-social p-2 btn-google-link"><i class="fa fa-google-plus"></i></a>
+                        <a href="#x" class="btn btn-social p-2 btn-pinterest-link"><i class="fa fa-pinterest"></i></a>
+                        <a href="#x" class="btn btn-social p-2 btn-dribbble-link"><i class="fa fa-dribbble"></i></a>
+                    </div><!-- / social-icons -->
+                </div><!--/ footer-secondary -->
+            </div><!-- / container-fluid -->
+        </footer>
+        <!-- end footer-->
+    </div> <!-- end vue-app -->                
+
+<!-- Core JavaScript -->
+<script src="js/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="js/bootstrap.min.js"></script>
+<!-- / Core JavaScript -->
+
+<!-- Smooth Scrolling -->
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/smooth-scroll.js"></script>
+<!-- / Smooth Scrolling -->
+
+<!-- Ripple Effect -->
+<script src="js/ripple.js"></script>
+<script>$.ripple.init();
+</script>
+<!-- / Ripple Effect -->
+
+<!-- Varying Modal Example -->
+<script>
+$('#var-modal-example').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var recipient = button.data('whatever') // Extract info from data-* attributes
+  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+  var modal = $(this)
+  modal.find('.modal-title').text('New message to ' + recipient)
+  modal.find('.modal-body input').val(recipient)
+})
+</script>
+<!-- / Varying Modal Example -->
+
+<!-- Popover -->
+<script>
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
+
+$('.popover-dismiss').popover({
+  trigger: 'hover'
+})
+</script>
+<!-- / Popover -->
+
+<!-- Tooltips -->
+<script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+<!-- / Tooltips -->
+
+
+
+
+<!-- Hide Nav -->
+<script src="js/hide-nav.js"></script>
+<!-- / Hide Nav -->
+
+</body>
+
+</html>
+
+<template id="boards-index-page">  
+    <div class="vue-component"> 
+        <div class="row">
+            <div v-for="board in boards" class="col-md-4">
+                <div class="block icon-block bg-info w-border-2x border-info dark inner-space rounded-2x text-center">
+                    <i class="md-icon dp36 box-icon bg-info border-info text-white pill raised">verified_user</i>
+                    <h4 class="box-title"> {{ board.context }} </h4>
+                       
+                    <!-- <p class="box-description"> {{"description"}}</p> -->
+                </div><!-- / icon-block -->
+            </div><!-- / column -->
+         
+        </div><!-- / row -->
+    </div> <!--vue component -->
+</template><!-- index template -->
+
+
