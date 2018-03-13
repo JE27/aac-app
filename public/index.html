@@ -33,10 +33,11 @@
 </head>
 
 <body data-spy="scroll" data-target="#nav-scroll">
+
     <div id="vue-app"> 
 
         <div id="top"></div>
-        <!-- header -->
+        <!-- start header -->
         <!-- navigation menu -->
         <nav id="nav-scroll" class="navbar-demo navbar navbar-demo navbar-expand-lg navbar-inverse fixed-top">
             <div class="container content-container">
@@ -73,7 +74,7 @@
                   </div><!-- main-menu -->
             </div><!-- container -->
         </nav>
-    <!-- / navigation menu -->
+    <!-- end navigation menu -->
 
     
         <header class="parallax">
@@ -82,68 +83,25 @@
                 <h3 class="mt-3 mb-3">mic check - making sure all voices are loud enough to be heard</h3>
                 <h4 class="dark">by expanding communication options for children who are nonvocal.</h4>
             </div><!-- / container -->
-        </header>
+        </header> <!-- end header -->
 
-        <!-- end header -->
+        <div class="container content-container"> <!-- next 2 lines create pop-out box -->
+        <div class="content">
 
-        <router-view></router-view>
+            <router-view></router-view>
 
-
+        </div> <!-- content -->
+        </div> <!-- content container -->
         <!-- FOOTER  -->
-        <footer class="dark footer-inverse">
-            <div class="container-fluid">
-                <div class="row footer-widget-area">
-                    <div class="col-lg-4 mb-3">
-                        <h3 class="widget-title">mic check - making sure all voices are loud enogh to be heard</h3>
-                        <p class="mt-3 mb-3">Donec blandit nisi non lectus pharetra, vel varius tortor pretium. Sed posuere sit amet nisi id asm scelerisque conubia nostra, per inceptos. Nam aledui et feugiat suscipit at consequat leo.</p>
-                    </div><!-- / column -->
+                    <a href="#top" class="scroll-to-top pill is-hidden smooth-scroll rounded" data-nav-status="toggle"><i class="md-icon dp18">expand_less</i></a>
 
-                    <div class="col-lg-2 mb-3">
-                        <h3 class="widget-title">USEFULL LINKS</h3>
-                        <ul class="list-unstyled mt-3">
-                            <li class="mb-3"><a href="#x"><b>SiteMap</b></a></li>
-                            <li class="mb-3"><a href="#x"><b>Tips & Tricks</b></a></li>
-                            <li class="mb-3"><a href="#x"><b>FAQ</b></a></li>
-                            <li class="mb-3"><a href="#x"><b>Contact</b></a></li>
-                        </ul>
-                    </div><!-- / column -->
+                    <div class="spacer-2x">&nbsp;</div>
 
-                    <div class="col-lg-2 mb-3">
-                        <h3 class="widget-title">SERVICES</h3>
-                        <ul class="list-unstyled mt-3">
-                            <li class="mb-3"><a href="#x"><b>Graphic Design</b></a></li>
-                            <li class="mb-3"><a href="#x"><b>Web Design</b></a></li>
-                            <li class="mb-3"><a href="#x"><b>Photography</b></a></li>
-                            <li class="mb-3"><a href="#x"><b>SEO</b></a></li>
-                        </ul>
-                    </div><!-- / column -->
-
-                    <div class="col-lg-4 mb-3">
-                        <h3 class="widget-title">SUBSCRIBE TO NEWSLETTER</h3>
-                        <p class="mt-3">Join our newsletter to get notified. Don't worry about spam, we'll never do that!</p>
-                        <div class="input-group dark mt-3 ml-auto mr-auto">
-                            <input class="form-control" placeholder="Email Address..." type="email">
-                            <span class="input-group-btn">
-                                <a href="#x" class="btn btn-primary pill ml-2 ripple"><i class="md-icon dp16 mr-1">send</i></a>
-                            </span>
-                        </div><!-- / input-group -->
-                    </div><!-- / column -->
-                </div><!-- / row footer-widget-area -->
-                <div class="footer-secondary text-center">
-                    <div class="text-sm">
-                        <p class="mb-0"><b>COPYRIGHT © 2018 mic check - making sure all voices are loud enough to be heard</b></p>
-                    </div>
-                    <div class="social-icons mt-2">
-                        <a href="#x" class="btn btn-social p-2 btn-facebook-link"><i class="fa fa-facebook"></i></a>
-                        <a href="#x" class="btn btn-social p-2 btn-twitter-link"><i class="fa fa-twitter"></i></a>
-                        <a href="#x" class="btn btn-social p-2 btn-google-link"><i class="fa fa-google-plus"></i></a>
-                        <a href="#x" class="btn btn-social p-2 btn-pinterest-link"><i class="fa fa-pinterest"></i></a>
-                        <a href="#x" class="btn btn-social p-2 btn-dribbble-link"><i class="fa fa-dribbble"></i></a>
-                    </div><!-- / social-icons -->
-                </div><!--/ footer-secondary -->
-            </div><!-- / container-fluid -->
-        </footer>
-        <!-- end footer-->
+                    <footer class="dark bg-danger no-border demo-footer">
+                        <div class="container text-center">
+                            <p>© 2018 mic check - an augmentative & alternate communication device </p>
+                        </div><!-- end footer -->
+                    </footer>
     </div> <!-- end vue-app -->                
 
 <!-- Core JavaScript -->
@@ -208,6 +166,7 @@ $(function () {
 
 </html>
 
+
 <template id="boards-index-page">  
     <div class="vue-component"> 
         <div class="row">
@@ -223,5 +182,52 @@ $(function () {
         </div><!-- / row -->
     </div> <!--vue component -->
 </template><!-- index template -->
+
+<template id="boards-show-page">
+    <div class="vue-component">
+        <div class="col-md-4">
+            <div class="card blog-card">
+                <img v-for="word in board"class="card-img-top" src="{{ board.word.symbol }}" alt="">
+                <div class="card-body">
+                    <div class="block blog-block">
+                        <h5 v-for="word in board"class="box-title mt-0 mb-2"><a href="#x"><b>{{ word.content }}</b></a></h5>
+                    </div><!-- / blog-block -->
+                </div><!-- / card-body -->
+            </div><!-- / card -->
+        </div><!-- / column -->
+    </div>
+    
+</template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

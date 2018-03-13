@@ -34,7 +34,7 @@ var BoardsShowPage = {
     return {
       boards: {
         context: "",
-        description: "description"
+        words: ""
       },
     };
   },
