@@ -32,16 +32,14 @@ var BoardsShowPage = {
   template: "#boards-show-page",
   data: function() {
     return {
-      boards: {
-        context: "",
-        words: ""
-      },
+      board: []
     };
   },
   created: function() {
-    axios.get("/boards" + this.$route.params.id)
+    console.log("hellooooooo");
+    axios.get("/boards/" + this.$route.params.id)
     .then(function(response) {
-    this.boards = response.data;
+    this.board = response.data;
     }.bind(this));
   },
 };
