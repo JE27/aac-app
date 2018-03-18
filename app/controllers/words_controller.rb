@@ -18,10 +18,12 @@ class WordsController < ApplicationController
   end
 
   def create
+    word_symbol = Unirest.get("https://www.opensymbols.org/api/v1/symbols/search?q=#{params[:symbol]}").body[0]["image_url"]
     @word = Word.new(
                         content: params[:content],
                         part_of_speech: params[:part_of_speech],
-                        symbol: params[:symbol]
+                        symbol: word_symbol,
+
                        )
     @word.save
     render 'show.json.jbuilder'
@@ -42,7 +44,7 @@ class WordsController < ApplicationController
 
   def destroy
     word = Word.find(params[:id])
-    render json: {message:"The word #{board.content} has been erased."}
+    render json: {message:"The word #{word.content} has been erased."}
   end
 
 end

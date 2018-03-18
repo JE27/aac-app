@@ -55,16 +55,18 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle ripple-dark ripple" href="#x" id="dropdown001" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">BOARDS</a>
                             <div class="dropdown-menu animated zoomIn fast" aria-labelledby="dropdown001">
-                                <a class="dropdown-item ripple-dark ripple" href="#x">DAILY</a>
-                                <a class="dropdown-item ripple-dark ripple" href="#x">SCHOOL</a>
-                                <a class="dropdown-item ripple-dark ripple" href="#x">PLAY</a>
-                                <a class="dropdown-item ripple-dark ripple" href="#x">FOOD</a>
+                                <a class="dropdown-item ripple-dark ripple" href="/#/boards/1">DAILY</a>
+                                <a class="dropdown-item ripple-dark ripple" href="/#/boards/2">FOOD</a>
+                                <a class="dropdown-item ripple-dark ripple" href="/#/boards/4">CLOTHING</a>
+                                <a class="dropdown-item ripple-dark ripple" href="/#/boards/4">HYGIENE</a>
+                                <a class="dropdown-item ripple-dark ripple" href="/#/boards/5">ACTIVITIES</a>
+                                <a class="dropdown-item ripple-dark ripple" href="/#/boards/7">FAMILY</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item ripple-dark ripple" href="#x">ALL BOARDS</a>
+                                <a class="dropdown-item ripple-dark ripple" href="#/boards">ALL BOARDS</a>
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link smooth-scroll ripple" href="#basic-components"><i class="md-icon dp16">layers</i> <span class="va-middle">ABOUT</span></a>
+                            <a class="nav-link smooth-scroll ripple" href="/#/words/"><i class="md-icon dp16">layers</i> <span class="va-middle">WORDS</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link smooth-scroll ripple" href="#content-areas"><i class="md-icon dp16">dashboard</i> <span class="va-middle"> LOGIN/SIGN-UP</span></a>
@@ -171,17 +173,44 @@ $(function () {
     <div class="vue-component"> 
         <div class="row">
             <div v-for="board in boards" class="col-md-4">
-                <div class="block icon-block bg-info w-border-2x border-info dark inner-space rounded-2x text-center">
-                    <i class="md-icon dp36 box-icon bg-info border-info text-white pill raised">verified_user</i>
-                    <h4 class="box-title"> {{ board.context }} </h4>
-                       
-                    <!-- <p class="box-description"> {{"description"}}</p> -->
-                </div><!-- / icon-block -->
+                <a v-bind:href="'/#/boards/' + board.id">
+                    <div class="block icon-block bg-info w-border-2x border-info dark inner-space rounded-2x text-center">
+                        <i class="md-icon dp36 box-icon bg-info border-info text-white pill raised">verified_user</i>
+                        <h4 class="box-title"> {{ board.context }} </h4>
+                           
+                        <!-- <p class="box-description"> {{"description"}}</p> -->
+                    </div><!-- / icon-block -->
+                </a>
+                </router-link>
             </div><!-- / column -->
-         
         </div><!-- / row -->
     </div> <!--vue component -->
 </template><!-- index template -->
+
+<template id="words-index-page">  
+    <div class="vue-component"> 
+        <div class="card">
+                <h4 class="text-center text-danger"> Click to a block to edit a word. </h4>
+        </div><!-- / card -->
+        <div class="row" > 
+            <div class="col-2" v-for="word in words">
+                <div  class="card blog-card">
+                    <div class="">
+                        <img class="card-img-top" v-bind:src="word.symbol" alt="word.content">
+                    <div class="card-body">
+                        <div class="block blog-block">
+                            <h5 class="box-title mt-0 mb-2 text-center" ><a href="#x"><b>{{ word.content | capitalize }}</b></a></h5>
+                            <h6 class="text-center"> word ID: {{ word.id }} </h6>
+                        </div><!-- / blog-block -->
+                    </div><!-- / card-body -->
+                    </div>
+                    
+                </div><!-- / card -->
+            </div><!-- / column -->
+        </div><!-- end row -->
+    </div> <!--vue component -->
+</template><!-- index template -->
+
 
 <template id="boards-show-page">
     <div class="vue-component">

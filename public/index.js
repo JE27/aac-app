@@ -3,6 +3,11 @@
 
 // Boards Components
 
+Vue.filter('capitalize', function (value) {
+  if (!value) return ''
+  value = value.toString()
+  return value.toUpperCase()
+})
 
 var BoardsIndexPage = {
   template: "#boards-index-page",
@@ -28,6 +33,30 @@ var BoardsIndexPage = {
   computed: {}
 };
 
+var WordsIndexPage = {
+  template: "#words-index-page",
+  data: function() {
+    return {
+      words: [],
+      currentWord: {formatted: {}}
+    };
+  },
+  created: function() {
+    console.log("this is working");
+    axios.get("/words").then(function(response) {
+        console.log(response.data)
+        this.words = response.data;
+      }.bind(this)
+    );
+  },
+  methods: {
+    setCurrentWord: function(word) {
+      this.currentWord = word;
+    }
+  },
+  computed: {}
+};
+
 var BoardsShowPage = {
   template: "#boards-show-page",
   data: function() {
@@ -48,6 +77,7 @@ var router = new VueRouter({
   routes: [
   { path: "/", component: BoardsIndexPage },
   { path: "/boards", component: BoardsIndexPage },
+  { path: "/words", component: WordsIndexPage },
   { path: "/boards/:id", component: BoardsShowPage }
   ],
   scrollBehavior: function(to, from, savedPosition) {
