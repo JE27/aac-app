@@ -215,8 +215,8 @@ $(function () {
                 <div class="input-group">
                    <input  type="img" class="form-control">
                    
-                   <span class="input-group-btn">
-                       <a v-on:click=""v-bind:href="'/#/boards/' + board.id" class="btn btn-primary ripple"> CLEAR COMMAND </a>
+                   <span v-on:click="clearSymbol()" class="input-group-btn">
+                       <a class="btn btn-primary ripple"> CLEAR COMMAND </a>
                    </span>
                 </div>
                 <div class="row">

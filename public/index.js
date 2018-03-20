@@ -77,7 +77,7 @@ var BoardsShowPage = {
       this.currentWord.push(word.symbol);
     },
     clearSymbol: function(word) {
-      this.currentWord.length = 0;
+      this.currentWord = [];
     }
   },
 };
