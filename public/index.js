@@ -61,7 +61,8 @@ var BoardsShowPage = {
   template: "#boards-show-page",
   data: function() {
     return {
-      board: []
+      board: [],
+      currentWord: []
     };
   },
   created: function() {
@@ -70,6 +71,14 @@ var BoardsShowPage = {
     .then(function(response) {
     this.board = response.data;
     }.bind(this));
+  },
+  methods: {
+    addSymbol: function(word) {
+      this.currentWord.push(word.symbol);
+    },
+    clearSymbol: function(word) {
+      this.currentWord.length = 0;
+    }
   },
 };
 
