@@ -211,35 +211,34 @@ $(function () {
 
 <template id="boards-show-page">
     <div class="vue-component">
-        <div class="card">
-                <div class="input-group">
-                   <input  type="img" class="form-control">
-                   
-                   <span v-on:click="clearSymbol()" class="input-group-btn">
-                       <a class="btn btn-primary ripple"> CLEAR COMMAND </a>
-                   </span>
-                </div>
-                <div class="row">
-                    <div class="col-1" v-for="symbol in currentWord" v-for="" v-if="currentWord !== ''">
-
-                    <img   v-bind:src="symbol" alt="">
-
+            <div class="card">
+                    <div class="input-group">
+                       <input  type="img" class="form-control">
+                       
+                       <span v-on:click="clearSymbol()" class="input-group-btn">
+                           <a class="btn btn-primary ripple"> CLEAR COMMAND </a>
+                       </span>
                     </div>
-                </div>
-                
-        </div><!-- / card -->
-        <div class="row" > 
-            <div class="col-2" v-for="word in board.words">
-                <div  class="card blog-card">
-                        <img v-on:click="addSymbol(word)" class="card-img-top" v-bind:src="word.symbol" alt="word.content">
-                    <div class="card-body">
-                        <div class="block blog-block">
-                            <h5 class="box-title mt-0 mb-2"><a href="#x"><b>{{ word.content }}</b></a></h5>
-                        </div><!-- / blog-block -->
-                    </div><!-- / card-body -->
-                </div><!-- / card -->
-            </div><!-- / column -->
-        </div><!-- end row -->
+                    <div class="row">
+                        <div class="col-1" v-for="symbol in currentWord" v-for="" v-if="currentWord !== ''">
+
+                        <img   v-bind:src="symbol" alt="">
+
+                        </div>
+                    </div>
+            </div><!-- / card -->
+            <div class="row" > 
+                <div class="col-2" v-for="word in board.words">
+                    <div  class="card blog-card">
+                            <img v-on:click="addSymbol(word)" class="card-img-top" v-bind:src="word.symbol" alt="word.content">
+                        <div class="card-body">
+                            <div class="block blog-block">
+                                <h5 class="box-title mt-0 mb-2"><a href="#x"><b>{{ word.content }}</b></a></h5>
+                            </div><!-- / blog-block -->
+                        </div><!-- / card-body -->
+                    </div><!-- / card -->
+                </div><!-- / column -->
+            </div><!-- end row -->
     </div>
 </template>
 

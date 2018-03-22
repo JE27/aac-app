@@ -90,7 +90,17 @@ var router = new VueRouter({
   { path: "/boards/:id", component: BoardsShowPage }
   ],
   scrollBehavior: function(to, from, savedPosition) {
-    return { x: 0, y: 0 };
+    if (to.fullPath == "/boards") {
+      console.log("scroll to position");
+      console.log(to.fullPath);
+      console.log(from.fullPath);
+      return { selector: "div.content", offset : {x: 0, y: 68}};
+    } else { 
+      console.log("top");
+      console.log(to.fullPath);
+      console.log(from.fullPath);
+      return { x: 0, y: 0 };
+    }
   }
 });
 
