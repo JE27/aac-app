@@ -8,8 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Material Design UI Kit">
     <meta name="author" content="kingstudio.ro">
-    <!-- Favicon -->
-    <link rel="icon" href="">
     <!-- Site Title -->
     <title>comandr- an augmentative & alternate communication device</title>
     <!-- Bootstrap 4 core CSS -->
@@ -24,10 +22,10 @@
     <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
 
-    <script src="index.js" defer></script>
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.js"></script>
+    <script src="index.js" defer></script>
 
 
 </head>
@@ -50,14 +48,14 @@
                   <div class="collapse navbar-collapse" id="main-menu">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link smooth-scroll ripple" href="#top"><i class="md-icon dp16">home</i> <span class="va-middle">HOME</span></a>
+                            <a class="nav-link smooth-scroll ripple" href="#/boards"><i class="md-icon dp16">home</i> <span class="va-middle">HOME</span></a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle ripple-dark ripple" href="#x" id="dropdown001" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">BOARDS</a>
                             <div class="dropdown-menu animated zoomIn fast" aria-labelledby="dropdown001">
                                 <a class="dropdown-item ripple-dark ripple" href="/#/boards/1">DAILY</a>
                                 <a class="dropdown-item ripple-dark ripple" href="/#/boards/2">FOOD</a>
-                                <a class="dropdown-item ripple-dark ripple" href="/#/boards/4">CLOTHING</a>
+                                <a class="dropdown-item ripple-dark ripple" href="/#/boards/3">CLOTHING</a>
                                 <a class="dropdown-item ripple-dark ripple" href="/#/boards/4">HYGIENE</a>
                                 <a class="dropdown-item ripple-dark ripple" href="/#/boards/5">ACTIVITIES</a>
                                 <a class="dropdown-item ripple-dark ripple" href="/#/boards/7">FAMILY</a>
@@ -174,8 +172,8 @@ $(function () {
         <div class="row">
             <div v-for="board in boards" class="col-md-4">
                 <a v-bind:href="'/#/boards/' + board.id">
-                    <div class="block icon-block bg-info w-border-2x border-info dark inner-space rounded-2x text-center">
-                        <i class="md-icon dp36 box-icon bg-info border-info text-white pill raised">verified_user</i>
+                    <div class="block icon-block bg-info w-border-2x border-info dark inner-space rounded-2x text-center raised move">
+                        <i class="md-icon dp36 box-icon bg-info border-info text-white pill raised"> extension </i>
                         <h4 class="box-title"> {{ board.context }} </h4>
                            
                         <!-- <p class="box-description"> {{"description"}}</p> -->
@@ -221,16 +219,15 @@ $(function () {
                     </div>
                     <div class="row">
                         <div class="col-1" v-for="symbol in currentWord" v-for="" v-if="currentWord !== ''">
-
-                        <img   v-bind:src="symbol" alt="">
-
+                            <img   v-bind:src="symbol" alt="">
                         </div>
                     </div>
             </div><!-- / card -->
             <div class="row" > 
                 <div class="col-2" v-for="word in board.words">
-                    <div  class="card blog-card">
+                    <div class="card blog-card no-border raised move">
                             <img v-on:click="addSymbol(word)" class="card-img-top" v-bind:src="word.symbol" alt="word.content">
+                            <a class="close-overlay hidden">x</a>
                         <div class="card-body">
                             <div class="block blog-block">
                                 <h5 class="box-title mt-0 mb-2"><a href="#x"><b>{{ word.content }}</b></a></h5>

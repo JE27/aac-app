@@ -18,7 +18,6 @@ var BoardsIndexPage = {
     };
   },
   created: function() {
-    console.log("this is working");
     axios.get("/boards").then(function(response) {
         console.log(response.data)
         this.boards = response.data;
@@ -42,7 +41,6 @@ var WordsIndexPage = {
     };
   },
   created: function() {
-    console.log("this is working");
     axios.get("/words").then(function(response) {
         console.log(response.data)
         this.words = response.data;
@@ -66,7 +64,6 @@ var BoardsShowPage = {
     };
   },
   created: function() {
-    console.log("hellooooooo");
     axios.get("/boards/" + this.$route.params.id)
     .then(function(response) {
     this.board = response.data;
@@ -80,6 +77,13 @@ var BoardsShowPage = {
       this.currentWord = [];
     }
   },
+  beforeRouteUpdate: function(to, from , next) {
+    axios.get(to.fullPath)
+    .then(function(response) {
+    this.board = response.data;
+    }.bind(this));
+    next();
+  }
 };
 
 var router = new VueRouter({
@@ -90,19 +94,11 @@ var router = new VueRouter({
   { path: "/boards/:id", component: BoardsShowPage }
   ],
   scrollBehavior: function(to, from, savedPosition) {
-    if (to.fullPath == "/boards") {
-      console.log("scroll to position");
-      console.log(to.fullPath);
-      console.log(from.fullPath);
-      return { selector: "div.content", offset : {x: 0, y: 68}};
-    } else { 
-      console.log("top");
-      console.log(to.fullPath);
-      console.log(from.fullPath);
-      return { x: 0, y: 0 };
-    }
+    return { selector: "div.content", offset : {x: 0, y: 68}};
   }
+
 });
+
 
 var app = new Vue({
   el: "#vue-app",

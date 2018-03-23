@@ -336,11 +336,6 @@ html, body {
 
 /*--- end of custom colors ---*/
 /*--- custom attributes ---*/
-div.fixed {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-}
 
 .container.full-width {
   width: 100% !important;
