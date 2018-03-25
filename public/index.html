@@ -67,7 +67,7 @@
                             <a class="nav-link smooth-scroll ripple" href="/#/words/"><i class="md-icon dp16">layers</i> <span class="va-middle">WORDS</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link smooth-scroll ripple" href="#content-areas"><i class="md-icon dp16">dashboard</i> <span class="va-middle"> LOGIN/SIGN-UP</span></a>
+                            <a class="nav-link smooth-scroll ripple" href="/#/login"><i class="md-icon dp16">dashboard</i> <span class="va-middle"> LOGIN/SIGN-UP</span></a>
                         </li>
                     </ul><!-- / navbar-nav -->
 
@@ -187,9 +187,16 @@ $(function () {
 
 <template id="words-index-page">  
     <div class="vue-component"> 
-        <div class="card">
-                <h4 class="text-center text-danger"> Click a block to edit a word. </h4>
-        </div><!-- / card -->
+        <div class="cta bg-danger">
+            <div class="row center">
+                <div class="col-md-7">
+                    <h4 class="mb-0 text-white">
+                        <i class="md-icon dp18 mr-2">settings</i>
+                        <strong> click a word to change the image</strong></h4>
+                </div>
+            </div><!-- / row -->
+        </div><!-- / cta -->
+        <div class="spacer">&nbsp;</div>
         <div class="row" > 
             <div class="col-2" v-for="word in words">
                 <div  class="card blog-card">
@@ -230,7 +237,7 @@ $(function () {
                             <a class="close-overlay hidden">x</a>
                         <div class="card-body">
                             <div class="block blog-block">
-                                <h5 class="box-title mt-0 mb-2"><a href="#x"><b>{{ word.content }}</b></a></h5>
+                                <h5 class="box-title mt-0 mb-2 text-center"><a href="#x"><b>{{ word.content | capitalize }}</b></a></h5>
                             </div><!-- / blog-block -->
                         </div><!-- / card-body -->
                     </div><!-- / card -->
@@ -238,6 +245,102 @@ $(function () {
             </div><!-- end row -->
     </div>
 </template>
+
+<template id="words-show-page">
+    <div class="vue-component">
+            <div class="row" > 
+                <div class="col-2" v-for="word in words">
+                    <div class="card blog-card no-border raised move">
+                            <img class="card-img-top" v-bind:src="word.symbol" alt="word.content">
+                        <div class="card-body">
+                            <div class="block blog-block">
+                                <h5 class="box-title mt-0 mb-2 text-center"><a href="#x"><b>{{ word.content | capitalize }}</b></a></h5>
+                            </div><!-- / blog-block -->
+                        </div><!-- / card-body -->
+                    </div><!-- / card -->
+                </div><!-- / column -->
+            </div><!-- end row -->
+    </div>
+</template>
+
+<template id="login-page">  
+    <div class="vue-component"> 
+            <div class="custom-form">
+                <div class="form-wrapper">
+                    <div class="cta bg-primary">
+                        <div class="row center">
+                            <div class="col-md-7">
+                                <h4 class="mb-0 text-white">
+                                    <i class="md-icon dp18 mr-2">verified_user</i>
+                                    <strong> welcome back</strong></h4>
+                            </div>
+                        </div><!-- / row -->
+                    </div><!-- / cta -->
+                    <div class="spacer">&nbsp;</div>
+                    <input type="email" class="form-control mb-3" v-model="email" id="login-email" placeholder="Email Address">
+                    <input type="password" class="form-control mb-3" v-model="password" id="login-password-input" placeholder="Password">
+                
+                       <div class="row" v-for="error in errors">
+                            <div class="col-md-6">
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <i class="md-icon dp18 alert-icon mr-3">warning</i>{{ error }}
+                                </div><!-- / alert -->
+                            </div><!-- / column -->
+                        </div><!-- / row -->
+            
+                        <div class="modal-footer-left">
+                            <button type="button" class="btn btn-info pill align-" data-dismiss="modal" v-on:click="submit()"><i class="md-icon dp16 mr-2">account_circle</i> <span>Login</span></button>
+                            <a href=" /#/logout/ ">
+                            <button type="button" class="btn btn-danger pill align-" v-on:click="submit()"><i class="md-icon dp16 mr-2">cancel</i> <span>Logout</span></button></a>
+                            <a href=" /#/signup/ ">
+                            <button type="button" class="btn btn-success pill"  data-dismiss="modal"><i class="md-icon dp16 mr-2">open_in_new</i> <span>Sign-Up</span></button></button></a>
+                        </div><!-- / modal-footer -->
+                </div><!-- / form-wrapper -->
+            </div><!-- / custom-form -->
+    </div> <!--vue component -->
+</template><!-- index template -->
+
+<template id="signup-page">  
+    <div class="vue-component"> 
+    <div class="custom-form">
+        <div class="form-wrapper">
+      
+              <div class="spacer">&nbsp;</div>
+            <input type="email" class="form-control mb-1" id="register-email" placeholder="Email Address">
+            <input type="password" class="form-control mb-3" id="register-password-input" placeholder="Password">
+            <input type="password" class="form-control mb-3" id="register-confirm-password" placeholder="Confirm Password">
+                <div class="modal-footer-left">
+                    <button type="button" class="btn btn-success pill" data-dismiss="modal"><i class="md-icon dp16 mr-2">open_in_new</i> <span>Submit Sign-Up Info</span></button>
+                    <a href=" /#/login/ ">
+                    <button type="button" class="btn btn-info pill align-" data-dismiss="modal"><i class="md-icon dp16 mr-2">account_circle</i> <span>Go Back to Login</span></button></a>
+                </div><!-- / modal-footer -->
+        </div><!-- / form-wrapper -->
+    </div><!-- / custom-form -->
+    </div>
+</template>
+
+<template id="logout-page">  
+    <div class="vue-component"> 
+    <div class="custom-form">
+        <div class="form-wrapper">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>See ya later, alligator!</strong> You successfully logged out.
+                    </div><!-- / alert -->
+                </div> <!-- end col -->
+            </div> <!-- end row -->        
+        </div><!-- / form-wrapper -->
+    </div><!-- / custom-form -->
+    </div>
+</template>
+
 
 
 
