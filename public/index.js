@@ -90,8 +90,7 @@ var WordsShowPage = {
   template: "#words-show-page",
   data: function() {
     return {
-      word: [],
-      currentWord: []
+      word: []
     };
   },
   created: function() {
@@ -100,6 +99,44 @@ var WordsShowPage = {
     this.word = response.data;
     }.bind(this));
   },
+};
+var WordsEditPage = {
+  template: "#words-edit-page",
+  data: function() {
+    return {
+      word: {
+        content: "",
+        symbol: "",
+        errors: []
+      }
+    };
+  },
+  created: function() {
+    axios.get("/words/" + this.$route.params.id)
+    .then(function(response) {
+    var word = response.data;
+    this.content = word.content
+    this.symbol = word.symbol
+    }.bind(this));
+  },
+  methods: {
+    submit: function() {
+      var params = {
+        word: this.content,
+        image_url: this.symbol
+      };
+      axios.patch("/words/" + this.$route.params.id, params)
+      .then(function(response){
+        router.push("/words/" + response.data.id);
+      }.bind(this))
+      .catch(
+        function(error){
+          this.errors = error.response.data.errors;
+          router.push("/login");
+        }.bind(this)
+      );
+    }
+  }
 };
 var SignupPage = {
   template: "#signup-page",
@@ -182,7 +219,7 @@ var router = new VueRouter({
   { path: "/words", component: WordsIndexPage },
   { path: "/boards/:id", component: BoardsShowPage },
   { path: "/words/:id", component: WordsShowPage },
-  // { path: "/words/:id/edit", component: WordsEditPage },
+  { path: "/words/:id/edit", component: WordsEditPage },
   { path: "/signup", component: SignupPage },
   { path: "/login", component: LoginPage },
   { path: "/logout", component: LogoutPage },

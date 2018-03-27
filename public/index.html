@@ -39,7 +39,7 @@
         <!-- navigation menu -->
         <nav id="nav-scroll" class="navbar-demo navbar navbar-demo navbar-expand-lg navbar-inverse fixed-top">
             <div class="container content-container">
-                <a class="navbar-brand smooth-scroll" href="#top"><img src="" alt=""> <span class="va-middle ml-1">comandr</span></a>
+                <a class="navbar-brand smooth-scroll" href="#top"><img src="" alt=""><img src="mic_4.png" alt="logo" class="nav-icon mb-3"> <span class="va-middle ml-1"><strong> my mands</strong></span></a>
 
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -51,7 +51,7 @@
                             <a class="nav-link smooth-scroll ripple" href="#/boards"><i class="md-icon dp16">home</i> <span class="va-middle">HOME</span></a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle ripple-dark ripple" href="#x" id="dropdown001" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">BOARDS</a>
+                            <a class="nav-link dropdown-toggle ripple-dark ripple" href="#x" id="dropdown001" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="md-icon dp16">layers</i> BOARDS</a>
                             <div class="dropdown-menu animated zoomIn fast" aria-labelledby="dropdown001">
                                 <a class="dropdown-item ripple-dark ripple" href="/#/boards/1">DAILY</a>
                                 <a class="dropdown-item ripple-dark ripple" href="/#/boards/2">FOOD</a>
@@ -64,10 +64,10 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link smooth-scroll ripple" href="/#/words/"><i class="md-icon dp16">layers</i> <span class="va-middle">WORDS</span></a>
+                            <a class="nav-link smooth-scroll ripple" href="/#/words/"><i class="md-icon dp16">dashboard</i> <span class="va-middle">WORDS</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link smooth-scroll ripple" href="/#/login"><i class="md-icon dp16">dashboard</i> <span class="va-middle"> LOGIN/SIGN-UP</span></a>
+                            <a class="nav-link smooth-scroll ripple" href="/#/login"><i class="md-icon dp16">account_circle</i> <span class="va-middle"> LOGIN/SIGN-UP</span></a>
                         </li>
                     </ul><!-- / navbar-nav -->
 
@@ -79,8 +79,8 @@
     
         <header class="parallax">
             <div class="container text-center dark">
-                <img src="images/logo.png" alt="logo" class="header-logo mb-3">
-                <h3 class="mt-3 mb-3">comandr - a web based augmentative and alternative communication device.</h3>
+                <img src="mic_4.png" alt="logo" class="header-logo mb-3">
+                <h3 class="mt-3 mb-3"><strong>my mands</strong> - a web based augmentative and alternative communication device.</h3>
                 <h4 class="dark">working to expand communication options for children who are nonvocal.</h4>
             </div><!-- / container -->
         </header> <!-- end header -->
@@ -99,7 +99,7 @@
 
                     <footer class="dark bg-danger no-border demo-footer">
                         <div class="container text-center">
-                            <p>© 2018 comandr - an augmentative & alternative communication device </p>
+                            <p>© 2018 my mands - an augmentative & alternative communication device </p>
                         </div><!-- end footer -->
                     </footer>
     </div> <!-- end vue-app -->                
@@ -191,14 +191,15 @@ $(function () {
             <div class="row center">
                 <div class="col-md-7">
                     <h4 class="mb-0 text-white">
-                        <i class="md-icon dp18 mr-2">settings</i>
-                        <strong> click a word to change the image</strong></h4>
+                        <i class="md-icon dp18 mr-2">star</i>
+                        <strong> click a word to customize the image</strong></h4>
                 </div>
             </div><!-- / row -->
         </div><!-- / cta -->
         <div class="spacer">&nbsp;</div>
         <div class="row" > 
             <div class="col-2" v-for="word in words">
+                <a v-bind:href="'/#/words/' + word.id">
                 <div  class="card blog-card">
                         <img class="card-img-top" v-bind:src="word.symbol" alt="word.content">
                     <div class="card-body">
@@ -208,6 +209,7 @@ $(function () {
                         </div><!-- / blog-block -->
                     </div><!-- / card-body -->
                 </div><!-- / card -->
+                </a>
             </div><!-- / column -->
         </div><!-- end row -->
     </div> <!--vue component -->
@@ -219,7 +221,6 @@ $(function () {
             <div class="card">
                     <div class="input-group">
                        <input  type="img" class="form-control">
-                       
                        <span v-on:click="clearSymbol()" class="input-group-btn">
                            <a class="btn btn-primary ripple"> CLEAR COMMAND </a>
                        </span>
@@ -249,19 +250,60 @@ $(function () {
 <template id="words-show-page">
     <div class="vue-component">
             <div class="row" > 
-                <div class="col-2" v-for="word in words">
+                <div class="col-2">
+                 
+
                     <div class="card blog-card no-border raised move">
                             <img class="card-img-top" v-bind:src="word.symbol" alt="word.content">
                         <div class="card-body">
                             <div class="block blog-block">
                                 <h5 class="box-title mt-0 mb-2 text-center"><a href="#x"><b>{{ word.content | capitalize }}</b></a></h5>
                             </div><!-- / blog-block -->
+
+                <a v-bind:href="'/#/words/' + word.id + '/edit' " class="btn btn-primary default m-1 ripple"><i class="md-icon dp18 mr-2">settings</i><span> Edit Word </span></a>
                         </div><!-- / card-body -->
                     </div><!-- / card -->
                 </div><!-- / column -->
             </div><!-- end row -->
     </div>
 </template>
+
+<template id="words-edit-page">  
+    <div class="vue-component"> 
+            <div class="custom-form">
+                <div class="form-wrapper">
+                    <div class="cta bg-warning">
+                        <div class="row center">
+                            <div class="col-md-7">
+                                <h4 class="mb-0 text-white">
+                                    <i class="md-icon dp18 mr-2">settings</i>
+                                    <strong> to edit a word, please provide a new url for the image</strong></h4>
+                            </div>
+                        </div><!-- / row -->
+                    </div><!-- / cta -->
+                    <div class="spacer">&nbsp;</div>
+                    <input type="email" class="form-control mb-3" v-model="content" id="word">
+                    <input type="password" class="form-control mb-3" v-model="symbol" id="login-password-input" placeholder="www.newimage.com">
+                
+                       <div class="row" v-for="error in errors">
+                            <div class="col-md-6">
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <i class="md-icon dp18 alert-icon mr-3">warning</i>{{ error }}
+                                </div><!-- / alert -->
+                            </div><!-- / column -->
+                        </div><!-- / row -->
+                        <div class="modal-footer-left">
+                            <button type="button" class="btn btn-success pill align-" data-dismiss="modal" v-on:click="submit()"><i class="md-icon dp16 mr-2">star</i> <span>submit</span></button>
+                            <a v-bind:href="'/#/words/'">
+                            <button type="button" class="btn btn-danger pill align-" v-on:click=""><i class="md-icon dp16 mr-2">cancel</i> <span>cancel</span></button></a>
+                        </div><!-- / modal-footer -->
+                </div><!-- / form-wrapper -->
+            </div><!-- / custom-form -->
+    </div> <!--vue component -->
+</template><!-- show template -->
 
 <template id="login-page">  
     <div class="vue-component"> 
@@ -271,7 +313,7 @@ $(function () {
                         <div class="row center">
                             <div class="col-md-7">
                                 <h4 class="mb-0 text-white">
-                                    <i class="md-icon dp18 mr-2">verified_user</i>
+                                    <i class="md-icon dp18 mr-2">person</i>
                                     <strong> welcome back</strong></h4>
                             </div>
                         </div><!-- / row -->
@@ -307,7 +349,15 @@ $(function () {
     <div class="vue-component"> 
     <div class="custom-form">
         <div class="form-wrapper">
-      
+            <div class="cta bg-warning">
+                <div class="row center">
+                    <div class="col-md-7">
+                        <h4 class="mb-0 text-white">
+                            <i class="md-icon dp18 mr-2">public</i>
+                            <strong> create an account</strong></h4>
+                    </div>
+                </div><!-- / row -->
+            </div><!-- / cta -->
               <div class="spacer">&nbsp;</div>
             <input type="email" class="form-control mb-1" id="register-email" placeholder="Email Address">
             <input type="password" class="form-control mb-3" id="register-password-input" placeholder="Password">
