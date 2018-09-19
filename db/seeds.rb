@@ -49,7 +49,6 @@
 # BoardWord.create(word_id: 4, board_id: 7)
 # BoardWord.create(word_id: 15, board_id: 2)
 # BoardWord.create(word_id: 16, board_id: 2)
-# BoardWord.create(word_id: 16, board_id: 2)
 # BoardWord.create(word_id: 18, board_id: 2)
 # BoardWord.create(word_id: 18, board_id: 1)
 # BoardWord.create(word_id: 18, board_id: 3)
@@ -57,7 +56,6 @@
 # BoardWord.create(word_id: 18, board_id: 5)
 # BoardWord.create(word_id: 18, board_id: 6)
 # BoardWord.create(word_id: 19, board_id: 2)
-# BoardWord.create(word_id: 19, board_id: 1)
 # BoardWord.create(word_id: 19, board_id: 3)
 # BoardWord.create(word_id: 19, board_id: 4)
 # BoardWord.create(word_id: 19, board_id: 5)
@@ -89,6 +87,23 @@
 # BoardWord.create(word_id: 42, board_id: 5)
 # BoardWord.create(word_id: 43, board_id: 5)
 # BoardWord.create(word_id: 44, board_id: 5)
+# BoardWord.create(word_id: 45, board_id: 1)
+# BoardWord.create(word_id: 46, board_id: 1)
+# BoardWord.create(word_id: 47, board_id: 3)
+# BoardWord.create(word_id: 48, board_id: 3)
+# BoardWord.create(word_id: 49, board_id: 3)
+# BoardWord.create(word_id: 50, board_id: 3)
+# BoardWord.create(word_id: 51, board_id: 3)
+# BoardWord.create(word_id: 52, board_id: 3)
+# BoardWord.create(word_id: 53, board_id: 2)
+# BoardWord.create(word_id: 54, board_id: 2)
+
+
+
+
+
+
+
 
 
 
